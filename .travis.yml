@@ -5,9 +5,9 @@ services:
 
 before_install:
    - docker pull ubuntu:16.04
-   - docker run -i -t ubuntu:16.04 /bin/bash sudo add-apt-repository ppa:ci-train-ppa-service/stable-phone-overlay -y
-   - docker run -i -t ubuntu:16.04 /bin/bash sudo apt update -q
-   - docker run -i -t ubuntu:16.04 /bin/bash sudo apt build-dep libqtdbustest -y
+   - docker run -i -t ubuntu:16.04 /bin/bash add-apt-repository ppa:ci-train-ppa-service/stable-phone-overlay -y
+   - docker run -i -t ubuntu:16.04 /bin/bash apt update -q
+   - docker run -i -t ubuntu:16.04 /bin/bash apt build-dep libqtdbustest -y
 
 script: true
 #  - docker run -i -t ubuntu:16.04 /bin/bash mkdir build
