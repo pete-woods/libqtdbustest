@@ -1,0 +1,9 @@
+language: cpp
+before_install:
+  - sudo add-apt-repository ppa:ci-train-ppa-service/stable-phone-overlay -y
+  - sudo apt update -q
+  - sudo apt build-dep ./ -y
+script:
+  - mkdir build
+  - cd build
+  - cmake .. && make
