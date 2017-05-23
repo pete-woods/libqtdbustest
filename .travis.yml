@@ -1,9 +1,15 @@
 language: cpp
+
+services:
+  - docker
+
 before_install:
-  - sudo add-apt-repository ppa:ci-train-ppa-service/stable-phone-overlay -y
-  - sudo apt update -q
-  - sudo apt build-dep ./ -y
-script:
-  - mkdir build
-  - cd build
-  - cmake .. && make
+   - docker pull ubuntu:16.04
+   - docker run -i -t ubuntu:16.04 /bin/bash sudo add-apt-repository ppa:ci-train-ppa-service/stable-phone-overlay -y
+   - docker run -i -t ubuntu:16.04 /bin/bash sudo apt update -q
+   - docker run -i -t ubuntu:16.04 /bin/bash sudo apt build-dep libqtdbustest -y
+
+script: true
+#  - docker run -i -t ubuntu:16.04 /bin/bash mkdir build
+#  - cd build
+#  - cmake .. && make
